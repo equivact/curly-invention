@@ -150,7 +150,6 @@ a {
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline
 }
 
 a:not([href]):not([class]) {
@@ -462,7 +461,49 @@ hr {
 
 .figure-caption {
     font-size: 90%;
-    color: #6c757d
+    color: #6c757d;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.75rem);
+    padding-top: calc(0.75rem);
+    text-align: center;
+}
+
+.button .icon:first-child:not(:last-child) {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.button.is-rounded {
+    border-radius: 10px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.button.is-normal {
+    font-size: 1rem;
+}
+
+.button.is-dark {
+    background-color: #eee;
+    border-color: transparent;
+    color: #000;
+}
+
+.button.is-dark:hover {
+    background-color: #ccc;
+    border-color: transparent;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 code {
@@ -529,6 +570,12 @@ pre code {
 @media (min-width: 992px) {
     .container, .container-lg, .container-md, .container-sm {
         max-width: 960px
+    }
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 1150px
     }
 }
 
