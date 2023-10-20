@@ -1,430 +1,280 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
 
-        <meta name="description" content="Project website for EquivAct">
-        <meta name="author" content="Congyue Deng">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project website for EquivAct">
+    <meta name="author" content="Jingyun Yang, Congyue Deng">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icons/robot_icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>EquivAct</title>
+  </head>
 
-        <link rel="icon" href="icons/robot_icon.png">
+  <style>
+    .grad_text {
+      background: -webkit-linear-gradient(right, #003f5c, #58508d, #bc5090, #ff6361, #ffa600);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://kit.fontawesome.com/d91aa93e36.js" crossorigin="anonymous"></script>
-
-        <title>EquivAct</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-
-    <style>
-        a {
-            color: black;
-        }
-
-        a:hover {
-            color: gray;
-        }
-
-        .body_text {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 400;
-            line-height: 1.6rem;
-            font-size: 1.04rem;
-            color: rgba(0,0,0,0.8);
-        }
-
-        .grad_text {
-            background: -webkit-linear-gradient(right, #003f5c, #58508d, #bc5090, #ff6361, #ffa600);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text_title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 700;
-            line-height: 3.5rem;
-            font-size: 3rem;
-            padding-top: 3rem;
-        }
-
-        .text_venue {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 500;
-            line-height: 2.0rem;
-            font-size: 1.5rem;
-        }
-
-        .text_author {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 300;
-            line-height: 1.2rem;
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        .text_resource {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 300;
-            line-height: 1.25rem;
-            font-size: 1.25rem;
-            color: #666;
-        }
-
-        .text_header {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 700;
-            line-height: 2.5rem;
-            font-size: 1.3rem;
-            margin-top: 0.4rem;
-        }
-
-        .figure_caption {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 400;
-            line-height: 1.8rem;
-            font-size: 1.0rem;
-            color: rgb(77, 79, 83);
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding-top: 0.3rem;
-        }
-
-        .text_reference {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            text-align: left;
-            font-size: 0.7em;
-            color: rgb(77, 79, 83);
-        }
-
-        .text_ack {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            text-align: center;
-            font-size: 0.7em;
-            font-weight: 700;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
-        .teaser_grid {
-            display: grid;
-            grid-template-columns: 33% 33% 33%;
-            grid-template-rows: 1fr;
-            justify-content: center;
-            grid-auto-flow: row;
-        }
-
-        .teaser_fig {
-            max-width: 99%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .icons {
-            height: 3.5em;
-        }
-
-
-        .big_figure {
-            max-width: 100%;
-            display: block;
-            margin: 1em auto 1em;
-        }
-
-        .median_figure {
-            max-width: 75%;
-            display: block;
-            margin: 1em auto 1em;
-        }
-
-        .color_switch {
-            background-color: rgb(255, 255, 255);
-        }
-
-        .qual_sample {
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .table_title {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: rgb(77, 79, 83);
-            text-align: center;
-        }
-
-        .table_head {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: rgb(77, 79, 83);
-            text-align: center;
-        }
-
-        .table_elem {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-            font-weight: 400;
-            font-size: 1.0rem;
-            color: rgb(77, 79, 83);
-            text-align: center;
-            align-self: center;
-        }
-
-        .table_emph {
-            font-weight: 700;
-        }
-
-    </style>
-
-    <body>
+  <body>
     <section>
-    <div class="container">
-        <div class="row" id="title">
-            <p class="col text-center mt-4 text_title">
+      <div class="relative items-center w-full px-5 pt-12 pb-2 mx-auto md:px-12 lg:px-16 max-w-7xl lg:pt-24 lg:pb-4">
+        <div class="flex w-full mx-auto text-left">
+          <div class="relative inline-flex items-center mx-auto align-middle">
+            <div class="text-center">
+              <h1 class="max-w-5xl text-3xl font-bold leading-none tracking-tighter text-black-600 md:text-5xl lg:text-5xl lg:max-w-7xl">
                 <span class="grad_text">EquivAct</span>: SIM(3)-Equivariant Visuomotor Policies beyond Rigid Object Manipulation
+              </h1>
+              <div class="space-y-2">
+                <p class="max-w-6xl mx-auto mt-8 text-md md:text-xl lg:text-xl lg:text-xl leading-relaxed text-gray-600 space-x-5">
+                  <a href="https://yjy0625.github.io/" class="hover:text-gray-800">Jingyun Yang<sup>1</sup>*</a>
+                  <a href="https://cs.stanford.edu/~congyue/" class="hover:text-gray-800">Congyue Deng<sup>1</sup>*</a>
+                  <a href="https://jimmyyhwu.github.io/" class="hover:text-gray-800">Jimmy Wu<sup>2</sup></a>
+                  <a href="https://contactrika.github.io/" class="hover:text-gray-800">Rika Antonova<sup>1</sup></a>
+                  <a href="https://geometry.stanford.edu/member/guibas/" class="hover:text-gray-800">Leonidas Guibas<sup>1</sup></a>
+                  <a href="https://web.stanford.edu/~bohg/" class="hover:text-gray-800">Jeannette Bohg<sup>1</sup></a>
+                </p>
+                <p class="max-w-6xl mx-auto mt-8 text-md md:text-xl lg:text-xl lg:text-xl leading-relaxed text-gray-400 space-x-7">
+                  <span>*Equal Contribution</span>
+                  <span>Stanford University<sup>1</sup></span>
+                  <span>Princeton University<sup>1</sup></span>
+                </p>
+              </div>
+              <div class="flex items-center justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
+                <a href="https://yjy0625.github.io/publications/equivact.pdf" class="inline-flex items-center text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-3 mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
+                  <svg aria-hidden="true" class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                  </svg>
+                  <span>Paper</span>
+                </a>
+                <a href="https://youtu.be/NaPL2H1nnGU" class="inline-flex items-center text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-3 mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
+                  <svg aria-hidden="true" class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                  </svg>
+                  <span>Video</span>
+                </a>
+                <a href="#" class="inline-flex items-center text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-3 mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
+                  <svg aria-hidden="true" class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+                  </svg>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center pt-6 mx-auto rounded-lg lg:px-10 max-w-7xl">
+          <div>
+            <video height="auto" width="100%" autoplay loop muted>
+              <source src="./video/teaser_video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center px-5 pt-8 pb-6 my-6 mx-auto max-w-5xl sm:px-6 lg:px-8">
+        <div class="flex flex-col w-full max-w-5xl mx-auto border-l-4 p-12 rounded-r-xl bg-gray-50 prose text-left text-gray-800 leading-7">
+          <h2 class="text-2xl font-bold pb-5"><span>Abstract</span></h2>
+          <p>
+            If a robot masters folding a kitchen towel, we would also expect it to master folding a beach towel. However, existing works for policy learning that rely on data set augmentations are still limited in achieving this level of generalization.
+            Our insight is to add equivariance into both the visual object representation and policy architecture.
+            We propose <strong>EquivAct</strong> which utilizes SIM(3)-equivariant network structures that guarantee generalization across all possible object translations, 3D rotations, and scales by construction. Training of EquivAct is done in two phases. We first pre-train a SIM(3)-equivariant visual representation on simulated scene point clouds. Then, we learn a SIM(3)-equivariant visuomotor policy on top of the pre-trained visual representation using a small amount of source task demonstrations.
+            We demonstrate that after training, the learned policy directly transfers to objects that substantially differ in scale, position and orientation from the source demonstrations.
+            In simulation, we evaluate our method in three manipulation tasks involving deformable and articulated objects thereby going beyond the typical rigid object manipulation tasks that prior works considered. We show that our method outperforms prior works that do not use equivariant architectures or do not use our contrastive pre-training procedure. We also show quantitative and qualitative experiments on three real robot tasks, where the robot watches twenty demonstrations of a tabletop task and transfers zero-shot to a mobile manipulation task in a much larger setup.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col items-center px-5 pt-6 pb-3 mx-auto max-w-6xl sm:px-6 lg:px-8">
+        <div class="flex flex-col w-full max-w-6xl mx-auto prose text-left text-gray-800">
+          <h2 class="text-2xl font-bold pb-5"><span class="grad_text">Video</span></h2>
+          <div>
+            <video height="auto" width="100%" controls="" style="border: 1px solid #000;">
+              <source src="./video/equivact.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col items-center px-5 pt-9 pb-3 mx-auto max-w-6xl sm:px-6 lg:px-8">
+        <div class="flex flex-col w-full max-w-6xl mx-auto prose text-left text-gray-800">
+          <h2 class="text-2xl font-bold pb-5"><span class="grad_text">Intuition</span></h2>
+          <div>
+            <p>
+              Constructed with SIM(3)-equivariant point cloud networks, our method can take a few examples of solving a source task and then generalize zero-shot to changes in object appearances, scales, and poses.
             </p>
+            <div class="flex flex-col items-center justify-center py-6 mx-auto lg:px-10 max-w-lg">
+              <img src="images/intuition.png" class="object-cover object-center">
+            </div>
+          </div>
         </div>
-
-        <div class="row" id="venue">
-            <p class="col text-center text_venue">   
+      </div>
+      <div class="flex flex-col items-center px-5 pt-6 pb-3 mx-auto max-w-6xl sm:px-6 lg:px-8">
+        <div class="flex flex-col w-full max-w-6xl mx-auto prose text-left text-gray-800">
+          <h2 class="text-2xl font-bold pb-5"><span class="grad_text">Method Overview</span></h2>
+          <div>
+            <p>
+              <strong>Our method is composed of two phases: a representation learning phase and a policy learning phase.</strong>
+              In the <strong>representation learning</strong> phase, the agent is given a set of simulated point clouds that are recorded from objects of the same category as the objects in the target task but with a randomized nonuniform scaling. While the proposed architecture is equivariant to uniform scaling, we need to augment the training data in this way to account for non-uniform scaling. Note that the simulated data is not a demonstration of the target task and does not need to include robot actions. With the simulated data, we train a SIM(3)-equivariant encoder-decoder architecture that takes the scene point cloud as input and outputs the global and local features of the input point cloud. We use a contrastive learning loss on paired point cloud inputs during training, so that local features for corresponding object parts of objects in similar poses can be pulled closer than non-corresponding parts.
             </p>
-        </div>
-
-        
-        <div class="row" id="authors">
-            <div class="col-md-12 text-center mt-2 text_author">
-                <ul class="list-inline">
-                    <li class="list-inline-item mx-2">
-                        <a href="https://yjy0625.github.io/">
-                            <p>Jingyun Yang<sup>1</sup>*</p>
-                        </a>
-                    </li>
-                    <li class="list-inline-item mx-2">
-                        <a href="https://cs.stanford.edu/~congyue/">
-                            <p>Congyue Deng<sup>1</sup>*</p>
-                        </a>
-                    </li>
-                    <li class="list-inline-item mx-24">
-                        <a href="https://jimmyyhwu.github.io/">
-                            <p>Jimmy Wu<sup>2</sup></p>
-                        </a>
-                    </li>
-                    <li class="list-inline-item mx-24">
-                        <a href="https://contactrika.github.io/">
-                            <p>Rika Antonova<sup>1</sup></p>
-                        </a>
-                    </li>
-                    <li class="list-inline-item mx-2">
-                        <a href="https://geometry.stanford.edu/member/guibas/">
-                            <p>Leonidas Guibas<sup>1</sup></p>
-                        </a>
-                    </li>
-                    <li class="list-inline-item mx-2">
-                        <a href="https://web.stanford.edu/~bohg/">
-                            <p>Jeannette Bohg<sup>1</sup></p>
-                        </a>
-                    </li>
-                    <br/>
-                    <li class="list-inline-item mx-4">
-                        <p>*Equal Contribution</p>
-                    </li>
-                    <li class="list-inline-item mx-4">
-                        <p>Stanford University<sup>1</sup></p>
-                    </li>
-                    <li class="list-inline-item mx-4">
-                        <p>Princeton University<sup>2</sup></p>
-                    </li>
-                </ul>
+            <div class="flex flex-col items-center justify-center py-6 mx-auto lg:px-10 max-w-3xl">
+              <img src="images/rep_learning.png" class="object-cover object-center">
             </div>
-        </div>
-        
-
-        <div class="row" id="resources">
-            <div class="col text-center text_resource">
-                <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                    </a>
-                </span>
-                <!-- <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="ai ai-arxiv"></i>
-                        </span>
-                        <span>arXiv</span>
-                    </a>
-                </span> -->
-                <!-- Video Link. -->
-                <span class="link-block">
-                    <a href="https://youtu.be/NaPL2H1nnGU" class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="fa-brands fa-youtube"></i>
-                        </span>
-                        <span>Video</span>
-                    </a>
-                </span>
-                <!-- Code Link. -->
-                <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                            <i class="fa-solid fa-code"></i></i>
-                        </span>
-                        <span>Code (Coming Soon)</span>
-                    </a>
-                </span>
-            </div>
-        </div>
-    </div>
-    </section>
-
-    <div class="container">
-    </div>
-
-    <section>
-        <div class="container">
-        <div class="row" id="abstract">
-            <div class="col my-3">
-                <div class="row" style="position:relative">
-                    <div class="grid-template-columns" style="width:75%;height:75%">
-                        <img src="images/teaser.png" class="teaser_fig">
-                    </div>
-                    <div class="grid-template-columns" style="width:20%;height:20%">
-                        <img src="images/results/real_exe.gif" class="teaser_fig" style="height:193px;position:absolute;bottom:0">
-                    </div>
-                </div>
-                <br><br>
-
-                <p class="text_header">
-                    <span class="grad_text">Abstract</span>
-                </p>
-
-                <p class="body_text">
-                    If a robot masters folding a kitchen towel, we would also expect it to master folding a beach towel. However, existing works for policy learning that rely on data set augmentations are still limited in achieving this level of generalization.
-                    Our insight is to add equivariance into both the visual object representation and policy architecture.
-                    We propose <strong>EquivAct</strong> which utilizes SIM(3)-equivariant network structures that guarantee generalization across all possible object translations, 3D rotations, and scales by construction. Training of EquivAct is done in two phases. We first pre-train a SIM(3)-equivariant visual representation on simulated scene point clouds. Then, we learn a SIM(3)-equivariant visuomotor policy on top of the pre-trained visual representation using a small amount of source task demonstrations.
-                    We demonstrate that after training, the learned policy directly transfers to objects that substantially differ in scale, position and orientation from the source demonstrations.
-                    In simulation, we evaluate our method in three manipulation tasks involving deformable and articulated objects thereby going beyond the typical rigid object manipulation tasks that prior works considered. We show that our method outperforms prior works that do not use equivariant architectures or do not use our contrastive pre-training procedure. We also show qualitative experiments on three real robot tasks, where the robot watches twenty demonstrations of a tabletop task and transfers zero-shot to a mobile manipulation task in a much larger setup.
-                </p>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-        <div class="row">
-            <div class="col my-3">
-                <p class="text_header">
-                    <span class="grad_text">Video</span>
-                </p>
-                <div class="text-center mb-4">
-                    <div style="position:relative;padding-top:10px;">
-                        <video height="auto" width="100%" controls="" style="border: 1px solid #000;">
-                            <source src="./video/equivact.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-        <div class="row" id="abstract">
-            <div class="col my-3">
-                <p class="text_header">
-                    <span class="grad_text">Method Overview</span>
-                </p>
-                
-                <p class="body_text">
-                    <strong>Our method is composed of two phases: a representation learning phase and a policy learning phase.</strong>
-                    In the <strong>representation learning</strong> phase, the agent is given a set of simulated point clouds that are recorded from objects of the same category as the objects in the target task but with a randomized nonuniform scaling. While the proposed architecture is equivariant to uniform scaling, we need to augment the training data in this way to account for non-uniform scaling. Note that the simulated data is not a demonstration of the target task and does not need to include robot actions. With the simulated data, we train a SIM(3)-equivariant encoder-decoder architecture that takes the scene point cloud as input and outputs the global and local features of the input point cloud. We use a contrastive learning loss on paired point cloud inputs during training, so that local features for corresponding object parts of objects in similar poses can be pulled closer than non-corresponding parts.
-                </p>
-                <img src="images/rep_learning.png" class="teaser_fig" style="width:75%">
-                <br><br>
-                <p class="body_text">
-                    In the <strong>policy learning</strong> phase, we assume access to a small set of demonstrated trajectories of the task. This could be in the form of human demonstrations or teleoperated robot trajectories. With the demonstration data, we train a closedloop policy that takes a partial point cloud of the scene as input, uses the pre-trained encoder from the representation learning phase to obtain the global and local features of the input point cloud, and then passes the features through a SIM(3)-equivariant action prediction network to predict endeffector movements.
-                </p>
-                <img src="images/policy_learning.png" class="teaser_fig" style="width:75%">
-                <br><br>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <section class="color_switch">
-        <div class="container">
-        <div class="row" id="teaser">
-            <div class="col my-3">
-                <p class="text_header">
-                    <span class="grad_text">Results</span>
-                </p>
-
-                <p class="body_text">
-                    We evaluate our method on three robot manipulation tasks involving deformable and articulated objects: cloth folding, object covering, and box closing. In simulation, we show that our method performs better than baselines that do not use equivariant architectures and rely on augmentations to achieve generalization to unseen translations, rotations, and scales.
-                </p>
-                <img src="images/sim_results.jpg" class="teaser_fig" style="width:100%;margin-bottom:1rem">
-
-                <p class="body_text">
-                    Below, we show qualitative samples of simulated demonstrations and learned sim policies executed on an object with different size and pose from the object seen in the demos.
-                </p>
-
-                <div class="row qual_wrapper">
-                    <div class="qual_sample">
-                        <img src="images/results/fold_demo_cropped.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/cover_demo_cropped.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/close_demo_cropped.gif" class="qual_fig" style="height:200px">
-                    </div>
-                    <p class="figure_caption">Simulated Demonstrations</b></p>
-                    <div class="qual_sample">
-                        <img src="images/results/fold_ours_cropped.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/cover_ours_cropped.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/close_ours_cropped.gif" class="qual_fig" style="height:200px">
-                    </div>
-                    <p class="figure_caption">Simulated Target Task Executions</b></p>
-                </div>
-
-                <p class="body_text">
-                    We also run real robot experiments on the same three tasks as the sim experiments. We show that our method performs significantly better than the best baseline in simulated experiments in all three tasks. Below, we show qualitative samples of real robot demos and real robot executions.
-                </p>
-
-                <div class="row qual_wrapper">
-                    <div class="qual_sample">
-                        <img src="images/results/real_demos_fold_4x_slower.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/real_demos_cover_4x_slower.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/real_demos_close_4x_slower.gif" class="qual_fig" style="height:200px">
-                    </div>
-                    <p class="figure_caption">Real Robot Demonstrations</b></p>
-                    <div class="qual_sample">
-                        <img src="images/results/real_folding_beige_towel-short.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/real_covering_red_blanket-short.gif" class="qual_fig" style="height:200px">
-                        <img src="images/results/real_boxclosing_large_box_rot-short.gif" class="qual_fig" style="height:200px">
-                    </div>
-                    <p class="figure_caption">Real Robot Target Task Executions</b></p>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-
-        <div class="row" id="ack" style="margin-top: 1rem">
-            <p class="col text_ack my-3">
-                If you have any questions, please contact Jingyun Yang, Congyue Deng, and Rika Antonova ({jingyuny, congyue, rika.antonova} "at" stanford "dot" edu).
+            <p>
+              In the <strong>policy learning</strong> phase, we assume access to a small set of demonstrated trajectories of the task. This could be in the form of human demonstrations or teleoperated robot trajectories. With the demonstration data, we train a closedloop policy that takes a partial point cloud of the scene as input, uses the pre-trained encoder from the representation learning phase to obtain the global and local features of the input point cloud, and then passes the features through a SIM(3)-equivariant action prediction network to predict endeffector movements.
             </p>
+            <div class="flex flex-col items-center justify-center py-6 mx-auto lg:px-10 max-w-3xl">
+              <img src="images/policy_learning.png" class="object-cover object-center">
+            </div>
+          </div>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    </body>
+      </div>
+      <div class="flex flex-col items-center px-5 pt-6 pb-3 mx-auto max-w-6xl sm:px-6 lg:px-8">
+        <div class="flex flex-col w-full max-w-6xl mx-auto prose text-left text-gray-800">
+          <h2 class="text-2xl font-bold pb-5"><span class="grad_text">Results</span></h2>
+          <div>
+            <p class="font-bold pb-2">Simulated Experiments</p>
+            <p>
+              We evaluate our method on three robot manipulation tasks involving deformable and articulated objects: cloth folding, object covering, and box closing. In simulation experiments, we show that our method performs better than baselines that do not use equivariant architectures and rely on augmentations to achieve generalization to unseen translations, rotations, and scales.
+            </p>
+            <div class="flex flex-col items-center justify-center py-6 mx-auto w-full">
+              <img src="images/sim_results.jpg" class="object-cover object-center">
+            </div>
+            <p>
+              Below, we show qualitative samples of simulated demonstrations and learned sim policies executed on an object with different size and pose from the object seen in the demos.
+            </p>
+            <div class="relative items-center w-full px-4 pt-4 pb-1 mx-auto max-w-6xl">
+              <div class="grid w-9/12 grid-cols-1 gap-3 mx-auto md:grid-cols-3 md:w-9/12">
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md" src="images/results/fold_demo_cropped.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md" src="images/results/cover_demo_cropped.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md" src="images/results/close_demo_cropped.gif" />
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-gray-500 pb-3">
+              Demonstrations in Sim Experiments
+            </p>
+            <div class="relative items-center w-full px-4 pt-1 pb-1 mx-auto max-w-6xl">
+              <div class="grid w-9/12 grid-cols-1 gap-3 mx-auto md:grid-cols-3 md:w-9/12">
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md" src="images/results/fold_ours_cropped.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md" src="images/results/cover_ours_cropped.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md" src="images/results/close_ours_cropped.gif" />
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-gray-500 pb-3">
+              Target Task Executions in Sim Experiments
+            </p>
+          </div>
+          <div>
+            <p class="font-bold pt-4 pb-2">Real Robot Experiments</p>
+            <p>
+                We also run real robot experiments on the same three tasks as the sim experiments. We show that our method performs significantly better than the best baseline in simulated experiments in all three tasks. Below, we show qualitative samples of real robot demos and real robot executions.
+            </p>
+            <div class="relative items-center w-full px-2 pt-4 pb-1 mx-auto max-w-6xl">
+              <div class="grid w-9/12 grid-cols-1 gap-3 mx-auto md:grid-cols-3 md:w-full">
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_demos_fold_4x_slower.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_demos_cover_4x_slower.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_demos_close_4x_slower.gif" />
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-gray-500 pb-3">
+              Human Demonstrations in Real Robot Experiments
+            </p>
+            <div class="relative items-center w-full px-2 pt-1 pb-1 mx-auto max-w-6xl">
+              <div class="grid w-9/12 grid-cols-1 gap-3 mx-auto md:grid-cols-3 md:w-full">
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_folding_beige_towel-short.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_covering_red_blanket-short.gif" />
+                </div>
+                <div class="p-2">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_boxclosing_large_box_rot-short.gif" />
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-gray-500 pb-3">
+              Target Task Executions in Real Robot Experiments
+            </p>
+          </div>
+          <div>
+            <p class="font-bold pb-2">Task Variations</p>
+            <p>
+              To illustrate the generalization capability of our method, we test it on various objects and initial poses. The first row shows the Box Closing policy on two differently sized boxes placed in different initial rotations. The same policy successfully closes the boxes in both cases. In the third column, we show that the Cloth Folding policy could handle different cloths that have distinct appearance, scale, and physical properties.
+            </p>
+            <div class="relative items-center w-full px-2 pt-1 pb-1 mx-auto max-w-6xl">
+              <div class="grid w-9/12 grid-cols-1 gap-3 mx-auto md:grid-cols-3 md:w-full">
+                <div class="pt-2 pb-0 text-center text-gray-500">Task Variation 1 (same as above)</div>
+                <div class="pt-2 pb-0 text-center text-gray-500">Task Variation 2</div>
+                <div class="pt-2 pb-0 text-center text-gray-500">Task Variation 3</div>
+                <div class="px-2 pb-2 pt-1">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_boxclosing_large_box_rot-short.gif">
+                </div>
+                <div class="px-2 pb-2 pt-1">
+                  <video class="object-cover object-center w-full rounded-md aspect-[4/3]" height="auto" width="100%" autoplay loop muted>
+                    <source src="video/variations/close_variation_smaller.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="px-2 pb-2 pt-1">
+                  <video class="object-cover object-center w-full rounded-md aspect-[4/3]" height="auto" width="100%" autoplay loop muted>
+                    <source src="video/variations/close_variation_smaller_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="px-2 pb-2 pt-1">
+                  <img class="object-cover object-center w-full rounded-md aspect-[4/3]" src="images/results/real_folding_beige_towel-short.gif">
+                </div>
+                <div class="px-2 pb-2 pt-1">
+                  <video class="object-cover object-center w-full rounded-md aspect-[4/3]" height="auto" width="100%" autoplay loop muted>
+                    <source src="video/variations/fold_variation_pink.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="px-2 pb-2 pt-1">
+                  <video class="object-cover object-center w-full rounded-md aspect-[4/3]" height="auto" width="100%" autoplay loop muted>
+                    <source src="video/variations/fold_variation_red.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="font-bold pt-4 pb-2">Feature Visualizations</p>
+            <p>
+              To better understand what the learned features look like, we visualize the pre-trained encoder and decoder features in all tasks. The encoder features are equivariant vector-valued features on the partial point cloud observations and the visualizations are done on their invariant components (channel-wise 2-norms). The decoder features are invariant scalar-valued features on the complete objects. We run PCA on feature values within each task to obtain RGB values for visualization purposes. All point clouds are aligned to the canonical pose for visualization. <span class="font-bold">Top two rows:</span> Objects of different shapes viewed from different camera angles but at the same poses. Both encoder and decoder features show strong correspondences within each state due to the contrastive learning. <span class="font-bold">Bottom row:</span> Objects from a different state. The features become different from the above rows.
+            </p>
+            <div class="flex flex-col items-center justify-center py-6 mx-auto max-w-3xl">
+              <img src="images/feature_vis.png" class="object-cover object-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-white mt-4" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" class="sr-only">Footer</h2>
+      <div class="px-4 py-8 mx-auto bg-gray-50 w-full sm:px-6 lg:px-16">
+        <div class="flex flex-wrap items-baseline lg:justify-center">
+          <span class="text-sm font-light text-gray-600">
+            If you have any questions, please contact Jingyun Yang, Congyue Deng, and Rika Antonova ({jingyuny, congyue, rika.antonova} "at" stanford "dot" edu).
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
