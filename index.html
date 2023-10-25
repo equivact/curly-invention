@@ -188,18 +188,24 @@
           <div>
             <p class="font-bold pt-4 pb-2">Real Robot Experiments</p>
             <p>
-                We also run real robot experiments on the same three tasks as the sim experiments. We show that our method performs significantly better than the best baseline in simulated experiments in all three tasks. Below, we show qualitative samples of real robot demos and real robot executions.
+                We also run real robot experiments on the same three tasks as the sim experiments. We collected 20 human demonstrations in each task and then test the learned policy zero-shot in a mobile manipulation setup. Notably, the demos are collected on a single object in the same initial pose. At test time, the robot needs to manipulate an unseen object that has dramatically different visual appearances, scales and poses compared to the demonstrations. Below, we show a comparison of the objects that our method sees at training time (source objects) vs. the sample objects that our method might see at test time (target objects).
+            </p>
+            <div class="flex flex-col items-center justify-center py-6 mx-auto w-full md:w-1/2">
+              <img src="images/objects.png" class="object-cover object-center rounded-md">
+            </div>
+            <p>
+                We show that our method performs significantly better than the best baseline in simulated experiments in all three tasks. Below, we show qualitative samples of real robot demos and real robot executions.
             </p>
             <div class="relative items-center w-full px-2 pt-4 pb-1 mx-auto max-w-6xl">
               <div class="grid w-9/12 grid-cols-1 gap-3 mx-auto md:grid-cols-3 md:w-full justify-items-center">
                 <div class="w-1/2 py-2">
-                  <img class="object-cover object-center w-full rounded-md rounded-md aspect-[1/1]" src="images/results/real_demos_fold_4x_slower.gif" />
+                  <img class="object-cover object-center w-full rounded-md aspect-[1/1]" src="images/results/real_demos_fold_4x_slower.gif" />
                 </div>
                 <div class="w-1/2 py-2">
-                  <img class="object-cover object-center w-full rounded-md rounded-md aspect-[1/1]" src="images/results/real_demos_cover_4x_slower.gif" />
+                  <img class="object-cover object-center w-full rounded-md aspect-[1/1]" src="images/results/real_demos_cover_4x_slower.gif" />
                 </div>
                 <div class="w-1/2 py-2">
-                  <img class="object-cover object-center w-full rounded-md rounded-md aspect-[1/1]" src="images/results/real_demos_close_4x_slower.gif" />
+                  <img class="object-cover object-center w-full rounded-md aspect-[1/1]" src="images/results/real_demos_close_4x_slower.gif" />
                 </div>
               </div>
             </div>
